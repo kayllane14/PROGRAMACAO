@@ -9,6 +9,12 @@ public class miniprojetokayllane {
                 System.out.println("Título:" + "A Escolha Real: Vestidos e Destinos");
                 System.out.println("Capitulo 1:" + "O Convite Real");
 
+                Personagem Eadlyn = new Personagem ( "Eadlyn",10);
+                
+                Personagem Celeste = new Personagem ("Celeste",10);
+                
+
+
                 // Capítulo 1
                 String capitulo1 = "No Reino Encantado, um convite real chegou às mãos" +
                                 "das princesas Eadlyn e Celeste. Elas foram convidadas para um baile" +
@@ -58,6 +64,9 @@ public class miniprojetokayllane {
 
                         if (escolha2 == 1) {
 
+                                Eadlyn.mudaalegria(+15);
+                                Celeste.mudaalegria(+15);
+
                                 System.out.println(
                                                 "As princesas ficam muito animadas e ansiosas, pois sabem que ela é a melhor estilista "
                                                                 +
@@ -96,6 +105,9 @@ public class miniprojetokayllane {
 
                                 if (escolha3 == 1) {
 
+                                        Eadlyn.mudaalegria(-10);
+                                        Celeste.mudaalegria(-10);
+
                                         System.out.println(
                                                         "As princesas ficaram decepcionadas com os vestidos, sentiram-se feias e acabaram não indo a o"
                                                                         +
@@ -104,6 +116,8 @@ public class miniprojetokayllane {
                                 }
 
                                 if (escolha3 == 2) {
+                                        Eadlyn.mudaalegria(+11);
+                                        Celeste.mudaalegria(+11);
 
                                         System.out.println(
                                                         "As princesas amaram seus vestidos. No baile, destacaram-se e brilharam com suas escolhas"
@@ -114,15 +128,21 @@ public class miniprojetokayllane {
                         }
 
                         if (escolha2 == 2) {
+                                Eadlyn.mudaalegria(-12);
+                                Celeste.mudaalegria(-12);
+
                                 System.out.println(
                                                 "As princesas ficaram desapontadas, e decidiram não mais ir ao baile, sabem que não tem"
                                                                 +
                                                                 "outra modista tão boa quanto Srta. Judete");
+
                                 System.out.println("Fim da história!");
                         }
                 }
 
                 if (escolha1 == 2) {
+                        Eadlyn.mudaalegria(-11);
+                        Celeste.mudaalegria(-11);
                         System.out.println(
                                         "As princesas não gostaram da ideia do baile, acharam tosco e optaram por ficar no"
                                                         +
