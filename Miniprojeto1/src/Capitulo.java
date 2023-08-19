@@ -4,6 +4,7 @@ public class Capitulo {
     String escolha1;
     String escolha2;
     Personagem Personagem;
+    Personagem Personagem2;
     int mudaalegria;
 
 
@@ -12,6 +13,7 @@ public class Capitulo {
                String escolha1,
                String escolha2,
                Personagem Personagem,
+               Personagem Personagem2,
                int mudaalegria)
     {
     this.nome = nome;
@@ -19,6 +21,7 @@ public class Capitulo {
     this.escolha1 = escolha1;
     this.escolha2 = escolha2;
     this.Personagem = Personagem;
+    this.Personagem2 = Personagem2;
     this.mudaalegria = mudaalegria;      
                }
 

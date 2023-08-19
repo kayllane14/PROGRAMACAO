@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class miniprojetokayllane {
-        public static void main(String[] args) throws Exception {
+        public static void main(String[] args) throws Exception { 
                 Scanner escolhas = new Scanner(System.in);
 
                 System.out.println("Bem-vindo, leitor!");
@@ -15,16 +15,17 @@ public class miniprojetokayllane {
                 
 
 
-                // Capítulo 1
-                Capitulo capitulo1 = new Capitulo("Capitulo 1:" + "O Convite Real", 
-                   "No Reino Encantado, um convite real chegou às mãos" +
+// CAPI
+                Capitulo capitulo1 = new Capitulo("O Convite Real",
+                 "No Reino Encantado, um convite real chegou às mãos" +
                                 "das princesas Eadlyn e Celeste. Elas foram convidadas para um baile" +
                                 "majestoso no Palácio de Cristal, onde a moda e a elegância seriam celebradas." +
                                 "As princesas aceitaram o convite?",
-                "1. Sim.", 
-                "2. Não.", 
-                Eadlyn, Celeste, 
-                0);
+                                 "1. Sim", "2. Não", Celeste, Eadlyn, 0);
+
+                                 capitulo1.mostrar();
+
+
 
 
           
@@ -56,6 +57,8 @@ public class miniprojetokayllane {
                  "2. Não, ela recusa!",
                  Eadlyn, Celeste,
                  15);
+
+                 capitulo2.mostrar();
            
         
 
@@ -95,6 +98,8 @@ public class miniprojetokayllane {
                                     "repleto de cores vibrantes e detalhes dourados.",
                                   Eadlyn, Celeste,
                                  11);
+
+                                 capitulo3.mostrar();
 
                               
                                 int escolha3 = escolhas.nextInt();
