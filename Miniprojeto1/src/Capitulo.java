@@ -1,28 +1,30 @@
+import java.util.Scanner;
 public class Capitulo {
+    
     String nome;
     String texto;
-    String escolha1;
-    String escolha2;
+    int[] escolhas;
     Personagem Personagem;
     Personagem Personagem2;
     int mudaalegria;
+    Scanner escaneador;
 
 
      Capitulo (String nome,
                String texto,
-               String escolha1,
-               String escolha2,
+               int[] escolhas,
                Personagem Personagem,
                Personagem Personagem2,
-               int mudaalegria)
+               int mudaalegria,
+               Scanner escaneador)
     {
     this.nome = nome;
     this.texto = texto;
-    this.escolha1 = escolha1;
-    this.escolha2 = escolha2;
+    this.escolhas = escolhas;
     this.Personagem = Personagem;
     this.Personagem2 = Personagem2;
-    this.mudaalegria = mudaalegria;      
+    this.mudaalegria = mudaalegria; 
+    this.escaneador = escaneador;     
                }
 
     void mostrar()
@@ -30,9 +32,56 @@ public class Capitulo {
 
     System.out.println(this.nome);
     System.out.println(this.texto);
-    System.out.println(this.escolha1);
-    System.out.println(this.escolha2);
-   
+    this.Personagem.mudaalegria(this.mudaalegria);
+    this.Personagem2.mudaalegria(this.mudaalegria);
+
+
+    if(this.escolhas != null)
+{
+    // for (int index = 0; index < escolhas.length; index++) 
+    // {
+    //   System.out.println(escolhas[index]);  
+    // }
+    for (int escolha : escolhas)
+    {
+        System.out.println(escolha);
+    }
+}
+
+    System.out.println();
+}
+
+int escolher()  
+{
+    int idEscolha = -1;
+    if(escolhas != null )
+    { 
+        while (idEscolha == -1)
+        
+        {
+
+        System.out.println("Digite sua escolha:");
+        int escolhaPreferida = escaneador.nextInt();
+
+        int idAtual = 0;
+
+        for (int escolha : escolhas) 
+        {
+            if(escolhaPreferida == escolha)
+      {
+        idEscolha = idAtual;
+     }
+        idAtual++;
+        }
+    
+
+    }
+
+}   
+return idEscolha;  
+
+
+
 }
 
 }
