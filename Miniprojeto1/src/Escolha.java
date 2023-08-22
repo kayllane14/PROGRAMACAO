@@ -1,16 +1,10 @@
 public class Escolha {
-    
-    int texto;
+
+    String texto;
     Capitulo proximo;
 
-
-    Escolha(int texto, Capitulo proximo)
-    {
+    public Escolha(String texto, Capitulo proximo) {
         this.texto = texto;
         this.proximo = proximo;
-        
     }
-
-
-    
 }

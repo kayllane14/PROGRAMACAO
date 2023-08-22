@@ -1,96 +1,56 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Capitulo {
-    
     String nome;
     String texto;
     ArrayList<Escolha> escolhas;
-    Personagem Personagem;
-    Personagem Personagem2;
+    Personagem personagem1;
+    Personagem personagem2;
     int mudaalegria;
+    Capitulo proximo;
     Scanner escaneador;
 
-
-     Capitulo (String nome,
-               String texto,
-               Personagem Personagem,
-               Personagem Personagem2,
-               int mudaalegria,
-               Scanner escaneador)
-    {
-    this.nome = nome;
-    this.texto = texto;
-    this.Personagem = Personagem;
-    this.Personagem2 = Personagem2;
-    this.mudaalegria = mudaalegria; 
-    this.escaneador = escaneador;   
-    this.escolhas = new ArrayList<Escolha>();  
-               }
-
-    void mostrar()
-    {
-
-    System.out.println(this.nome);
-    System.out.println(this.texto);
-    this.Personagem.mudaalegria(this.mudaalegria);
-    this.Personagem2.mudaalegria(this.mudaalegria);
-
-
-    if(this.escolhas.size() > 0)
-{
-    // for (int index = 0; index < escolhas.length; index++) 
-    // {
-    //   System.out.println(escolhas[index]);  
-    // }
-    for (Escolha escolha : escolhas)
-    {
-        System.out.println(escolha.texto);
-    } 
-    System.out.println();
-    
-        int idEscolha = escolher();
-        this.escolhas.get(idEscolha).proximo.mostrar();
-}
-
-
-
-
-   
-}
-
-int escolher()  
-{
-    int idEscolha = -1;
-    if(escolhas != null )
-    { 
-        while (idEscolha == -1)
-        
-        {
-
-        System.out.println("Digite sua escolha:");
-        int escolhaPreferida = escaneador.nextInt();
-
-        int idAtual = 0;
-
-        for (Escolha escolha : escolhas) 
-        {
-            if(escolhaPreferida == escolha)
-      {
-        idEscolha = idAtual;
-        
-    
-     }
-        idAtual++;
-        }
-    
-
+    Capitulo(String nome, String texto, Personagem personagem1, Personagem personagem2,
+             int mudaalegria, Scanner escaneador) {
+        this.nome = nome;
+        this.texto = texto;
+        this.personagem1 = personagem1;
+        this.personagem2 = personagem2;
+        this.mudaalegria = mudaalegria;
+        this.escaneador = escaneador;
+        this.escolhas = new ArrayList<Escolha>();
     }
 
-}   
-return idEscolha;  
+    public void adicionarEscolha(String texto, Capitulo proximo) {
+        escolhas.add(new Escolha(texto, proximo));
+    }
 
+    void mostrar() {
+        System.out.println(nome);
+        System.out.println(texto);
+        personagem1.mudaalegria(mudaalegria);
+        personagem2.mudaalegria(mudaalegria);
 
+        for (int i = 0; i < escolhas.size(); i++) {
+            System.out.println((i + 1) + ". " + escolhas.get(i).texto);
+        }
+    }
 
-}
+    int escolher() {
+        System.out.print("Escolha uma opção: ");
+        int escolha = escaneador.nextInt();
+        return escolha - 1; // Ajustar para índice base 0
+    }
 
+    Capitulo getProximo(int escolha) {
+        if (escolha >= 0 && escolha < escolhas.size()) {
+            return escolhas.get(escolha).proximo;
+        }
+        return proximo;
+    }
+
+    ArrayList<Escolha> getEscolhas() {
+        return escolhas;
+    }
 }
