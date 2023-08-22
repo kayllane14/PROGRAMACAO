@@ -1,9 +1,10 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 public class Capitulo {
     
     String nome;
     String texto;
-    int[] escolhas;
+    ArrayList<Escolha> escolhas;
     Personagem Personagem;
     Personagem Personagem2;
     int mudaalegria;
@@ -12,7 +13,6 @@ public class Capitulo {
 
      Capitulo (String nome,
                String texto,
-               int[] escolhas,
                Personagem Personagem,
                Personagem Personagem2,
                int mudaalegria,
@@ -20,11 +20,11 @@ public class Capitulo {
     {
     this.nome = nome;
     this.texto = texto;
-    this.escolhas = escolhas;
     this.Personagem = Personagem;
     this.Personagem2 = Personagem2;
     this.mudaalegria = mudaalegria; 
-    this.escaneador = escaneador;     
+    this.escaneador = escaneador;   
+    this.escolhas = new ArrayList<Escolha>();  
                }
 
     void mostrar()
@@ -36,19 +36,26 @@ public class Capitulo {
     this.Personagem2.mudaalegria(this.mudaalegria);
 
 
-    if(this.escolhas != null)
+    if(this.escolhas.size() > 0)
 {
     // for (int index = 0; index < escolhas.length; index++) 
     // {
     //   System.out.println(escolhas[index]);  
     // }
-    for (int escolha : escolhas)
+    for (Escolha escolha : escolhas)
     {
-        System.out.println(escolha);
-    }
+        System.out.println(escolha.texto);
+    } 
+    System.out.println();
+    
+        int idEscolha = escolher();
+        this.escolhas.get(idEscolha).proximo.mostrar();
 }
 
-    System.out.println();
+
+
+
+   
 }
 
 int escolher()  
@@ -65,11 +72,13 @@ int escolher()
 
         int idAtual = 0;
 
-        for (int escolha : escolhas) 
+        for (Escolha escolha : escolhas) 
         {
             if(escolhaPreferida == escolha)
       {
         idEscolha = idAtual;
+        
+    
      }
         idAtual++;
         }
