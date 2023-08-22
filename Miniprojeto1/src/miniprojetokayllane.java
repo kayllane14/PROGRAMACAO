@@ -18,7 +18,7 @@ public class miniprojetokayllane {
                                 "majestoso no Palácio de Cristal, onde a moda e a elegância seriam celebradas." +
                                 "As princesas aceitaram o convite?" +
                                 "Digite 1 para 'SIM' e 2 para 'NÃO' ",
-                                 new int[]{1, 2}, Celeste, Eadlyn, 0, escaneador);
+                                 Celeste, Eadlyn, 0, escaneador);
 
 
 //CAPITULO 2
@@ -38,9 +38,16 @@ public class miniprojetokayllane {
                                         "A modista aceita o desafio de criar vestidos exuberantes para essas princesas?" +
                                         "Digite 1 para 'Sim, ela aceita!' e 2 para 'Não, ela recusa!' ",
 
-                new int[]{1, 2},
+                
                  Eadlyn, Celeste,
                  15, escaneador);
+
+//CAPITULO 3
+
+                 Capitulo capitulo3 = new Capitulo("A Decisão!", "As princesas não gostaram da ideia do baile "+
+                 "acharam tosco e optaram por ficar no próprio castelo.",
+                  Eadlyn, Celeste, -11, escaneador);
+
 //CAPITULO 4
 
 
@@ -63,86 +70,73 @@ public class miniprojetokayllane {
                                     "repleto de cores vibrantes e detalhes dourados." +
                                     "Digite 1 para 'Fusão de Estilos' e 2 para 'A Elegância Tradicional'",
                                 
-                               new int[]{1, 2},
+                               
                                   Eadlyn, Celeste,
                                  11, escaneador);
 
+//CAPITULO 5
+
+                                Capitulo capitulo5 = new Capitulo("Desapontamento...",
+                                 "As princesas ficaram desapontadas, e decidiram não ir mais ao baile, "+
+                                 "sabem que não existe outra modista tão boa quanto Srta. Judete.", Eadlyn, Celeste, -12, escaneador);
 
 
-                        //EXECUTAR HISTÓRIA
 
-                System.out.println("Bem-vindo, leitor!");
+//CAPITULO 6
+
+                               Capitulo capitulo6 = new Capitulo("Sem auto-estima.",
+                                "As princesas ficaram decepcionadas com os vestidos, sentiram-se feias "+
+                                "e acabaram não indo ao baile.", Eadlyn, Celeste, -10, escaneador);
+
+
+//CAPITULO 7
+
+                              Capitulo capitulo7 = new Capitulo("Stars!",
+                               "As princesas amaram seus vestidos. No baile, destacaram-se e brilharam com suas escolhas "+
+                               "individuais e foram admiradas por sua elegância tradicional.", Eadlyn, Celeste, 0, escaneador);
+
+
+System.out.println("Bem-vindo, leitor!"); 
                 System.out.println("Prepardo para decidir o caminho dessa historia?");
                 System.out.println("Título:" + "A Escolha Real: Vestidos e Destinos");
 
+                
                 capitulo1.mostrar();
                 int escolha = capitulo1.escolher();
 
-                if (escolha == 0){
+
+
+if (escolha == 0){
                         System.out.println(
                                         "Decididas e animadas a ir para o baile, as princesas começam a pensar no que vestir"
                                                         +
                                                         "para essa noite tão magica.");
                         capitulo2.mostrar();
-                        escolha = capitulo2.escolher();
-                if (escolha == 0){
+                        escolha = capitulo2.escolher();}
+       //Escolhas
+       capitulo1.escolhas.add(new Escolha(1, capitulo2));
+       capitulo1.escolhas.add(new Escolha(1, capitulo3));
+
+if (escolha == 0){
                                                         Eadlyn.mudaalegria(+15);
                                 Celeste.mudaalegria(+15);
 
                                 System.out.println(
                                                 "As princesas ficam muito animadas e ansiosas, pois sabem que ela é a melhor estilista "
                                                                 +
-                                                                "do pais e que estão em boas mãos");
-                        capitulo4.mostrar();
-                        escolha = capitulo4.escolher();
+                                                                "do pais e que estão em boas mãos");}
+       capitulo2.escolhas.add(new Escolha(1, capitulo4));
+       capitulo2.escolhas.add(new Escolha(2, capitulo5));
+       capitulo4.escolhas.add(new Escolha(1,  capitulo6));
+       capitulo4.escolhas.add(new Escolha(2, capitulo7));
 
-                if (escolha == 0){
-                       Eadlyn.mudaalegria(-10);
-                                        Celeste.mudaalegria(-10);
-//CAPITULO 6
-                                        System.out.println(
-                                                        "As princesas ficaram decepcionadas com os vestidos, sentiram-se feias e acabaram não indo a o"
-                                                                        +
-                                                                        "baile");
-                                        System.out.println("Fim da história!"); 
-                }
-                else if (escolha == 1){
-                        Eadlyn.mudaalegria(+11);
-                                        Celeste.mudaalegria(+11);
-//CAPITULO 7
-                                        System.out.println(
-                                                        "As princesas amaram seus vestidos. No baile, destacaram-se e brilharam com suas escolhas"
-                                                                        +
-                                                                        "individuais e foram admiradas por sua elegância tradicional");
-                                        System.out.println("Fim da história!");
-                } 
-                }
-                else if(escolha == 1){
-                        Eadlyn.mudaalegria(-12);
-                        Celeste.mudaalegria(-12);
-//CAPITULO 5
-                                System.out.println(
-                                                "As princesas ficaram desapontadas, e decidiram não mais ir ao baile, sabem que não tem"
-                                                                +
-                                                                "outra modista tão boa quanto Srta. Judete");
+        
+       //  new int[]{1, 2}, //cap1
+       //  new int[]{1, 2}, //cap2
+      //   new int[]{1, 2}, //cap
 
-                                System.out.println("Fim da história!");
+}
                 }
+               
 
                         
-                }
-                else if(escolha == 1){
-                        Eadlyn.mudaalegria(-11);
-                        Celeste.mudaalegria(-11);
-//CAPITULO 3          
-                        System.out.println(
-                                        "As princesas não gostaram da ideia do baile, acharam tosco e optaram por ficar no"
-                                                        +
-                                                        "próprio castelo.");
-                        System.out.println("Fim da história!");
-                }
-
-                        }
-        
-
-                }
