@@ -18,6 +18,7 @@ public class Personagem {
             System.out.println(this.nome + " não está feliz o suficiente para ir ao baile.");
         }
     }
+
     public String getNome() {
         return nome;
     }

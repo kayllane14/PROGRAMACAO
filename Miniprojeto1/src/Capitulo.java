@@ -33,7 +33,7 @@ public class Capitulo {
         personagem2.mudaAlegria(mudaAlegria);
 
         for (int i = 0; i < escolhas.size(); i++) {
-            System.out.println((i + 1) + ". " + escolhas.get(i).texto);
+            System.out.println((i + 1) + ". " + escolhas.get(i).getTexto());
         }
     }
 
@@ -45,7 +45,7 @@ public class Capitulo {
 
     public Capitulo getProximo(int escolha) {
         if (escolha >= 0 && escolha < escolhas.size()) {
-            return escolhas.get(escolha).proximo;
+            return escolhas.get(escolha).getProximo();
         }
         return proximo;
     }

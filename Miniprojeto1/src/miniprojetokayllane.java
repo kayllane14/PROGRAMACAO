@@ -2,24 +2,24 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class miniprojetokayllane {
-    public static void main(String[] args, String CaminhoArquivoPERSONAGENS, LEReCARREGAR LEReCARREGAR) {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         LEReCARREGAR leitor = new LEReCARREGAR();
-       HashMap<String,Personagem> PERSONAGENS = leitor.lerPERSONAGENS(CaminhoArquivoPERSONAGENS: "C://Users//Kayllane//Documents//Programação//PROGRAMACAO/Miniprojeto1//rsc//PERSONAGENS.txt"; leitor = LEReCARREGAR);
-
+        String CaminhoArquivoPERSONAGENS = "C://Users//Kayllane//Documents//Programação//PROGRAMACAO/Miniprojeto1//rsc//PERSONAGENS.txt";
+        HashMap<String, Personagem> PERSONAGENS = leitor.lerPERSONAGENS(CaminhoArquivoPERSONAGENS);
 
         Personagem eadlyn = PERSONAGENS.get("Eadlyn");
-        Personagem celeste = PERSONAGENS.get("Celste");
+        Personagem celeste = PERSONAGENS.get("Celeste");
 
         // Criando capítulos
         Capitulo capitulo1 = new Capitulo("O Convite Real",
-                "No Reino Encantado, um convite real chegou às mãos das princesas Eadlyn e Celeste..."
-                , celeste, eadlyn, 0, scanner);
+                "No Reino Encantado, um convite real chegou às mãos das princesas Eadlyn e Celeste...",
+                celeste, eadlyn, 0, scanner);
 
         Capitulo capitulo2 = new Capitulo("O Encontro com a Modista",
-                "As princesas, empolgadas com o baile, decidiram visitar a renomada modista, Srta. Judete, ela aceita fazer os vestidos das princesas?"
-                , eadlyn, celeste, 15, scanner);
+                "As princesas, empolgadas com o baile, decidiram visitar a renomada modista, Srta. Judete. Ela aceita fazer os vestidos das princesas?",
+                eadlyn, celeste, 15, scanner);
 
         Capitulo capitulo3 = new Capitulo("Fim da História",
                 "As princesas optaram por não participar do baile e a história chegou ao fim."
@@ -69,13 +69,12 @@ public class miniprojetokayllane {
                 int escolha = capituloAtual.escolher();
                 capituloAtual = capituloAtual.getProximo(escolha);
             } else {
-                capituloAtual = capituloAtual.proximo;
+                capituloAtual = capituloFinal; // Define o capítulo final quando não há mais escolhas
             }
         }
-    
-            System.out.println("Fim da história.");
 
-    
-            scanner.close();
+        System.out.println("Fim da história.");
+
+        scanner.close();
     }
 }

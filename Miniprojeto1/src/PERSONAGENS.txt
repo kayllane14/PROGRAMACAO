@@ -5,13 +5,8 @@ ALEGRIA:
 10
 
 
-PERSONAGEM 
+PERSONAGEM
 NOME:
 Celeste
 ALEGRIA:
 10
-
-
-
-
-
