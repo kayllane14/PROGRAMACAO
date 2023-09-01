@@ -17,7 +17,7 @@ public class Capitulo {
         this.texto = texto;
         this.personagem1 = personagem1;
         this.personagem2 = personagem2;
-        this.mudaAlegria = mudaAlegria;
+        setMudaAlegria(mudaAlegria);
         this.escaneador = escaneador;
         this.escolhas = new ArrayList<>();
     }
@@ -29,9 +29,11 @@ public class Capitulo {
     public void mostrar() {
         System.out.println(nome);
         System.out.println(texto);
-        personagem1.mudaAlegria(mudaAlegria);
-        personagem2.mudaAlegria(mudaAlegria);
 
+        if (personagem1 != null && personagem2 != null) {
+            personagem1.mudaAlegria(mudaAlegria);
+            personagem2.mudaAlegria(mudaAlegria);
+        }
         for (int i = 0; i < escolhas.size(); i++) {
             System.out.println((i + 1) + ". " + escolhas.get(i).getTexto());
         }
@@ -40,7 +42,7 @@ public class Capitulo {
     public int escolher() {
         System.out.print("Escolha uma opção: ");
         int escolha = escaneador.nextInt();
-        return escolha - 1; // Ajustar para índice base 0
+        return escolha - 1;
     }
 
     public Capitulo getProximo(int escolha) {
@@ -50,7 +52,35 @@ public class Capitulo {
         return proximo;
     }
 
-    public ArrayList<Escolha> getEscolhas() {
-        return escolhas;
+    public boolean temEscolhas() {
+        return !escolhas.isEmpty();
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public int getMudaAlegria() {
+        return mudaAlegria;
+    }
+
+    public void setMudaAlegria(int mudaAlegria) {
+        if (mudaAlegria < -10 || mudaAlegria > 10) {
+            System.out.println("Erro: mudaAlegria fora do intervalo permitido (-10 a 10).");
+        } else {
+            this.mudaAlegria = mudaAlegria;
+        }
+    }
+
+    public void setProximo(Capitulo proximo) {
+        this.proximo = proximo;
+    }
+
+    public Capitulo getProximo() {
+        return null;
     }
 }

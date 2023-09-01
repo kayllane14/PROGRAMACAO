@@ -4,22 +4,20 @@ import java.util.Scanner;
 public class miniprojetokayllane {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         LEReCARREGAR leitor = new LEReCARREGAR();
-        String CaminhoArquivoPERSONAGENS = "C://Users//Kayllane//Documents//Programação//PROGRAMACAO/Miniprojeto1//rsc//PERSONAGENS.txt";
-        HashMap<String, Personagem> PERSONAGENS = leitor.lerPERSONAGENS(CaminhoArquivoPERSONAGENS);
+        HashMap<String, Personagem> PERSONAGENS = leitor.lerPERSONAGENS("C://Users//Kayllane//Documents//Programação//PROGRAMACAO/Miniprojeto1//rsc//PERSONAGENS.txt");
 
         Personagem eadlyn = PERSONAGENS.get("Eadlyn");
         Personagem celeste = PERSONAGENS.get("Celeste");
 
         // Criando capítulos
         Capitulo capitulo1 = new Capitulo("O Convite Real",
-                "No Reino Encantado, um convite real chegou às mãos das princesas Eadlyn e Celeste...",
-                celeste, eadlyn, 0, scanner);
+                "No Reino Encantado, um convite real chegou às mãos das princesas Eadlyn e Celeste..."
+                , celeste, eadlyn, 0, scanner);
 
         Capitulo capitulo2 = new Capitulo("O Encontro com a Modista",
-                "As princesas, empolgadas com o baile, decidiram visitar a renomada modista, Srta. Judete. Ela aceita fazer os vestidos das princesas?",
-                eadlyn, celeste, 15, scanner);
+                "As princesas, empolgadas com o baile, decidiram visitar a renomada modista, Srta. Judete, ela aceita fazer os vestidos das princesas?"
+                , eadlyn, celeste, 15, scanner);
 
         Capitulo capitulo3 = new Capitulo("Fim da História",
                 "As princesas optaram por não participar do baile e a história chegou ao fim."
@@ -47,11 +45,9 @@ public class miniprojetokayllane {
         capitulo1.adicionarEscolha("Aceitar o convite e ir ao baile.", capitulo2);
         capitulo1.adicionarEscolha("Recusar o convite e não ir ao baile.", capitulo3);
         capitulo2.adicionarEscolha("Ela aceita.", capitulo4);
-        capitulo2.adicionarEscolha("Ela resusa!",capitulo5);
+        capitulo2.adicionarEscolha("Ela recusa!", capitulo5);
         capitulo4.adicionarEscolha("Escolher a Fusão de Estilos.", capitulo7);
         capitulo4.adicionarEscolha("Escolher a Elegância Tradicional.", capitulo6);
-
-
 
         // Capítulo 7 não precisa de escolhas, é o final da história
 
@@ -65,11 +61,11 @@ public class miniprojetokayllane {
         while (capituloAtual != null) {
             capituloAtual.mostrar();
 
-            if (!capituloAtual.getEscolhas().isEmpty()) {
+            if (capituloAtual.temEscolhas()) {
                 int escolha = capituloAtual.escolher();
                 capituloAtual = capituloAtual.getProximo(escolha);
             } else {
-                capituloAtual = capituloFinal; // Define o capítulo final quando não há mais escolhas
+                capituloAtual = capituloAtual.getProximo();
             }
         }
 
