@@ -1,87 +1,56 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Capitulo {
-    
     String nome;
     String texto;
-    int[] escolhas;
-    Personagem Personagem;
-    Personagem Personagem2;
+    ArrayList<Escolha> escolhas;
+    Personagem personagem1;
+    Personagem personagem2;
     int mudaalegria;
+    Capitulo proximo;
     Scanner escaneador;
 
-
-     Capitulo (String nome,
-               String texto,
-               int[] escolhas,
-               Personagem Personagem,
-               Personagem Personagem2,
-               int mudaalegria,
-               Scanner escaneador)
-    {
-    this.nome = nome;
-    this.texto = texto;
-    this.escolhas = escolhas;
-    this.Personagem = Personagem;
-    this.Personagem2 = Personagem2;
-    this.mudaalegria = mudaalegria; 
-    this.escaneador = escaneador;     
-               }
-
-    void mostrar()
-    {
-
-    System.out.println(this.nome);
-    System.out.println(this.texto);
-    this.Personagem.mudaalegria(this.mudaalegria);
-    this.Personagem2.mudaalegria(this.mudaalegria);
-
-
-    if(this.escolhas != null)
-{
-    // for (int index = 0; index < escolhas.length; index++) 
-    // {
-    //   System.out.println(escolhas[index]);  
-    // }
-    for (int escolha : escolhas)
-    {
-        System.out.println(escolha);
+    Capitulo(String nome, String texto, Personagem personagem1, Personagem personagem2,
+             int mudaalegria, Scanner escaneador) {
+        this.nome = nome;
+        this.texto = texto;
+        this.personagem1 = personagem1;
+        this.personagem2 = personagem2;
+        this.mudaalegria = mudaalegria;
+        this.escaneador = escaneador;
+        this.escolhas = new ArrayList<Escolha>();
     }
-}
 
-    System.out.println();
-}
+    public void adicionarEscolha(String texto, Capitulo proximo) {
+        escolhas.add(new Escolha(texto, proximo));
+    }
 
-int escolher()  
-{
-    int idEscolha = -1;
-    if(escolhas != null )
-    { 
-        while (idEscolha == -1)
-        
-        {
+    void mostrar() {
+        System.out.println(nome);
+        System.out.println(texto);
+        personagem1.mudaalegria(mudaalegria);
+        personagem2.mudaalegria(mudaalegria);
 
-        System.out.println("Digite sua escolha:");
-        int escolhaPreferida = escaneador.nextInt();
-
-        int idAtual = 0;
-
-        for (int escolha : escolhas) 
-        {
-            if(escolhaPreferida == escolha)
-      {
-        idEscolha = idAtual;
-     }
-        idAtual++;
+        for (int i = 0; i < escolhas.size(); i++) {
+            System.out.println((i + 1) + ". " + escolhas.get(i).texto);
         }
-    
-
     }
 
-}   
-return idEscolha;  
+    int escolher() {
+        System.out.print("Escolha uma opção: ");
+        int escolha = escaneador.nextInt();
+        return escolha - 1; // Ajustar para índice base 0
+    }
 
+    Capitulo getProximo(int escolha) {
+        if (escolha >= 0 && escolha < escolhas.size()) {
+            return escolhas.get(escolha).proximo;
+        }
+        return proximo;
+    }
 
-
-}
-
+    ArrayList<Escolha> getEscolhas() {
+        return escolhas;
+    }
 }
