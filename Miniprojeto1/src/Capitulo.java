@@ -2,55 +2,55 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Capitulo {
-    String nome;
-    String texto;
-    ArrayList<Escolha> escolhas;
-    Personagem personagem1;
-    Personagem personagem2;
-    int mudaalegria;
-    Capitulo proximo;
-    Scanner escaneador;
+    private String nome;
+    private String texto;
+    private ArrayList<Escolha> escolhas;
+    private Personagem personagem1;
+    private Personagem personagem2;
+    private int mudaAlegria;
+    private Capitulo proximo;
+    private Scanner escaneador;
 
-    Capitulo(String nome, String texto, Personagem personagem1, Personagem personagem2,
-             int mudaalegria, Scanner escaneador) {
+    public Capitulo(String nome, String texto, Personagem personagem1, Personagem personagem2,
+                    int mudaAlegria, Scanner escaneador) {
         this.nome = nome;
         this.texto = texto;
         this.personagem1 = personagem1;
         this.personagem2 = personagem2;
-        this.mudaalegria = mudaalegria;
+        this.mudaAlegria = mudaAlegria;
         this.escaneador = escaneador;
-        this.escolhas = new ArrayList<Escolha>();
+        this.escolhas = new ArrayList<>();
     }
 
     public void adicionarEscolha(String texto, Capitulo proximo) {
         escolhas.add(new Escolha(texto, proximo));
     }
 
-    void mostrar() {
+    public void mostrar() {
         System.out.println(nome);
         System.out.println(texto);
-        personagem1.mudaalegria(mudaalegria);
-        personagem2.mudaalegria(mudaalegria);
+        personagem1.mudaAlegria(mudaAlegria);
+        personagem2.mudaAlegria(mudaAlegria);
 
         for (int i = 0; i < escolhas.size(); i++) {
             System.out.println((i + 1) + ". " + escolhas.get(i).texto);
         }
     }
 
-    int escolher() {
+    public int escolher() {
         System.out.print("Escolha uma opção: ");
         int escolha = escaneador.nextInt();
         return escolha - 1; // Ajustar para índice base 0
     }
 
-    Capitulo getProximo(int escolha) {
+    public Capitulo getProximo(int escolha) {
         if (escolha >= 0 && escolha < escolhas.size()) {
             return escolhas.get(escolha).proximo;
         }
         return proximo;
     }
 
-    ArrayList<Escolha> getEscolhas() {
+    public ArrayList<Escolha> getEscolhas() {
         return escolhas;
     }
 }

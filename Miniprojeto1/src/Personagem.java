@@ -1,13 +1,13 @@
 public class Personagem {
-    String nome;
-    int alegria;
+    private String nome;
+    private int alegria;
 
-    Personagem(String nome, int alegria) {
+    public Personagem(String nome, int alegria) {
         this.nome = nome;
         this.alegria = alegria;
     }
 
-    void mudaalegria(int altera) {
+    public void mudaAlegria(int altera) {
         this.alegria = this.alegria + altera;
 
         if (this.alegria > 10) {
@@ -17,5 +17,12 @@ public class Personagem {
             this.alegria = 0;
             System.out.println(this.nome + " não está feliz o suficiente para ir ao baile.");
         }
+    }
+    public String getNome() {
+        return nome;
+    }
+
+    public int getAlegria() {
+        return alegria;
     }
 }

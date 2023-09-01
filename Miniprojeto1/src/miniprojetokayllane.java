@@ -1,12 +1,16 @@
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class miniprojetokayllane {
-    public static void main(String[] args) {
+    public static void main(String[] args, String CaminhoArquivoPERSONAGENS, LEReCARREGAR LEReCARREGAR) {
         Scanner scanner = new Scanner(System.in);
-        
 
-        Personagem eadlyn = new Personagem("Eadlyn", 10);
-        Personagem celeste = new Personagem("Celeste", 10);
+        LEReCARREGAR leitor = new LEReCARREGAR();
+       HashMap<String,Personagem> PERSONAGENS = leitor.lerPERSONAGENS(CaminhoArquivoPERSONAGENS: "C://Users//Kayllane//Documents//Programação//PROGRAMACAO/Miniprojeto1//rsc//PERSONAGENS.txt"; leitor = LEReCARREGAR);
+
+
+        Personagem eadlyn = PERSONAGENS.get("Eadlyn");
+        Personagem celeste = PERSONAGENS.get("Celste");
 
         // Criando capítulos
         Capitulo capitulo1 = new Capitulo("O Convite Real",
