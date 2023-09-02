@@ -1,17 +1,17 @@
 public class Escolha {
     private String texto;
-    private Capitulo proximo;
+    private Capitulo capituloDestino;
 
-    public Escolha(String texto, Capitulo proximo) {
+    public Escolha(String texto, Capitulo capituloDestino) {
         this.texto = texto;
-        this.proximo = proximo;
+        this.capituloDestino = capituloDestino;
     }
 
     public String getTexto() {
         return texto;
     }
 
-    public Capitulo getProximo() {
-        return proximo;
+    public Capitulo getCapituloDestino() {
+        return capituloDestino;
     }
 }

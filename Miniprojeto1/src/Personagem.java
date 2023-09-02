@@ -4,21 +4,22 @@ public class Personagem {
 
     public Personagem(String nome, int alegria) {
         this.nome = nome;
-        setAlegria(alegria);
+        this.alegria = alegria;
     }
 
-    public void mudaAlegria(int altera) {
-        setAlegria(this.alegria + altera);
-    }
-
+    // Getters e Setters
     public String getNome() {
         return nome;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
     public int getAlegria() {
         return alegria;
     }
-
+    
     public void setAlegria(int alegria) {
         if (alegria < 0) {
             System.out.println(this.nome + " não tem ânimo suficiente para ir ao baile.");
@@ -30,3 +31,5 @@ public class Personagem {
         }
     }
 }
+
+    
