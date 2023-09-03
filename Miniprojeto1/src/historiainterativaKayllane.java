@@ -2,13 +2,15 @@ import java.util.*;
 
 public class historiainterativaKayllane {
     public static void main(String[] args) {
-       LeitorDeCarregamento leitor = new LeitorDeCarregamento();
+        LeitorDeCarregamento leitor = new LeitorDeCarregamento();
 
         // Carregando os personagens do arquivo
-        Map<String, Personagem> personagens = leitor.lerPersonagens("C:/Users/Kayllane/Documents/PROGRAMACAO/Miniprojeto1/rsc/personagens");
+        Map<String, Personagem> personagens = leitor
+                .lerPersonagens("C:/Users/Kayllane/Documents/PROGRAMACAO/Miniprojeto1/rsc/personagens");
 
         // Carregando os capítulos do arquivo
-        List<Capitulo> capitulos = leitor.lerCapitulos("C:/Users/Kayllane/Documents/PROGRAMACAO/Miniprojeto1/rsc/capitulos", new HashMap<>(personagens));
+        List<Capitulo> capitulos = leitor.lerCapitulos(
+                "C:/Users/Kayllane/Documents/PROGRAMACAO/Miniprojeto1/rsc/capitulos", new HashMap<>(personagens));
 
         // Iniciar a história com o primeiro capítulo
         if (!capitulos.isEmpty()) {

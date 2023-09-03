@@ -48,7 +48,7 @@ public class LeitorDeCarregamento {
                     String nomeCapitulo = scanner.nextLine();
                     String textoCapitulo = scanner.nextLine();
                     String nomesPersonagens = scanner.nextLine();
-                    String[] nomesPersonagensArray = nomesPersonagens.split(", "); 
+                    String[] nomesPersonagensArray = nomesPersonagens.split(", ");
                     List<String> listaNomesPersonagens = new ArrayList<>();
 
                     for (String nomePersonagem : nomesPersonagensArray) {
