@@ -33,44 +33,19 @@ public class LeitorDeCarregamento {
         return personagens;
     }
 
+    // Método para carregar capítulos na classe Capitulo
     public List<Capitulo> lerCapitulos(String caminhoArquivoCapitulos, HashMap<String, Personagem> personagens) {
         List<Capitulo> capitulos = new ArrayList<>();
         File arquivoCapitulos = new File(caminhoArquivoCapitulos);
 
         try {
             Scanner scanner = new Scanner(arquivoCapitulos);
-            Capitulo capitulo = null; // Inicialize com null
 
             while (scanner.hasNextLine()) {
                 String tipo = scanner.nextLine();
 
                 if (tipo.equals("CAPITULO") || tipo.equals("CAPITULO_COM_IMAGEM")) {
-                    String nomeCapitulo = scanner.nextLine();
-                    String textoCapitulo = scanner.nextLine();
-                    String nomesPersonagens = scanner.nextLine();
-                    String[] nomesPersonagensArray = nomesPersonagens.split(", ");
-                    List<String> listaNomesPersonagens = new ArrayList<>();
-
-                    for (String nomePersonagem : nomesPersonagensArray) {
-                        listaNomesPersonagens.add(nomePersonagem);
-                    }
-
-                    int alteracaoVida = Integer.parseInt(scanner.nextLine());
-
-                    // Crie uma lista de personagens associados a este capítulo
-                    List<Personagem> personagensAssociados = new ArrayList<>();
-                    for (String nomePersonagem : listaNomesPersonagens) {
-                        if (personagens.containsKey(nomePersonagem)) {
-                            personagensAssociados.add(personagens.get(nomePersonagem));
-                        }
-                    }
-
-                    if (tipo.equals("CAPITULO")) {
-                        capitulo = new Capitulo(nomeCapitulo, textoCapitulo, personagensAssociados, alteracaoVida);
-                        capitulos.add(capitulo); // Adicione o capítulo à lista
-                    } else {
-                        // Lógica para lidar com "CAPITULO_COM_IMAGEM" (se necessário)
-                    }
+                    capitulos.add(new Capitulo(scanner, personagens));
                 } else if (tipo.equals("ESCOLHA")) {
                     String nomeCapituloOrigem = scanner.nextLine();
                     String textoEscolha = scanner.nextLine();
@@ -78,14 +53,10 @@ public class LeitorDeCarregamento {
 
                     for (Capitulo c : capitulos) {
                         if (c.getNome().equals(nomeCapituloOrigem)) {
-                            capitulo = c;
+                            Escolha escolha = new Escolha(textoEscolha, nomeCapituloDestino);
+                            c.adicionarEscolha(escolha);
                             break;
                         }
-                    }
-
-                    if (capitulo != null) {
-                        Escolha escolha = new Escolha(textoEscolha, nomeCapituloDestino);
-                        capitulo.adicionarEscolha(escolha);
                     }
                 }
             }
