@@ -1,24 +1,31 @@
-import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.io.IOException;
 
 public class historiainterativaKayllane {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         LeitorDeCarregamento leitor = new LeitorDeCarregamento();
 
         // Carregando os personagens do arquivo
-        Map<String, Personagem> personagens = leitor
-                .lerPersonagens("C:/Users/Kayllane/Documents/PROGRAMACAO/Miniprojeto1/rsc/personagens");
+        Map<String, Personagem> personagens = leitor.lerPersonagens("C:/Users/Kayllane/Documents/PROGRAMACAO/Miniprojeto1/rsc/personagens");
 
         // Carregando os capítulos do arquivo
         List<Capitulo> capitulos = leitor.lerCapitulos(
-                "C:/Users/Kayllane/Documents/PROGRAMACAO/Miniprojeto1/rsc/capitulos", new HashMap<>(personagens));
+            "C:/Users/Kayllane/Documents/PROGRAMACAO/Miniprojeto1/rsc/capitulos", new HashMap<>(personagens));
 
         // Iniciar a história com o primeiro capítulo
         if (!capitulos.isEmpty()) {
             Capitulo capituloAtual = capitulos.get(0);
             while (capituloAtual != null) {
-                System.out.println(capituloAtual.getTexto());
+                capituloAtual.mostrarTexto(); // Use o método mostrarTexto() para exibir o capítulo
 
-                if (!capituloAtual.getEscolhas().isEmpty()) {
+                if (capituloAtual.temEscolhas()) {
                     System.out.println("Escolhas:");
                     int i = 1;
                     for (Escolha escolha : capituloAtual.getEscolhas()) {
