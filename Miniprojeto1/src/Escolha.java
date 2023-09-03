@@ -1,17 +1,23 @@
 public class Escolha {
     private String texto;
-    private Capitulo capituloDestino;
+    private String capituloDestino;
 
-    public Escolha(String texto, Capitulo capituloDestino) {
+    public Escolha(String texto, String capituloDestino) {
         this.texto = texto;
         this.capituloDestino = capituloDestino;
+    }
+
+    public Escolha(String textoEscolha, Capitulo capituloDestino2) {
+    }
+
+    public Escolha(String escolhaTexto) {
     }
 
     public String getTexto() {
         return texto;
     }
 
-    public Capitulo getCapituloDestino() {
+    public String getCapituloDestino() {
         return capituloDestino;
     }
 }

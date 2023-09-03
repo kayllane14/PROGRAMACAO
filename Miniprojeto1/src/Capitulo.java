@@ -1,15 +1,16 @@
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Capitulo implements Serializable {
     private static final long serialVersionUID = 1L;
     private String nome;
     private String texto;
-    private List<String> personagens;
+    private List<Personagem> personagens;
     private int mudaAlegria;
     private List<Escolha> escolhas;
 
-    public Capitulo(String nome, String texto, List<String> personagens, int mudaAlegria) {
+    public Capitulo(String nome, String texto, List<Personagem> personagens, int mudaAlegria) {
         this.nome = nome;
         this.texto = texto;
         this.personagens = personagens;
@@ -24,7 +25,7 @@ public class Capitulo implements Serializable {
         return texto;
     }
 
-    public List<String> getPersonagens() {
+    public List<Personagem> getPersonagens() {
         return personagens;
     }
 
@@ -45,11 +46,32 @@ public class Capitulo implements Serializable {
     }
 
     public void mostrarTexto() {
+        System.out.println(texto);
+        for (Personagem personagem : personagens) {
+            System.out.println(personagem.getNome() + ": " + personagem.getAlegria());
+        }
     }
 
     public void adicionarEscolha(int escolhaNumero, String escolhaTexto) {
+        Escolha escolha = new Escolha(escolhaTexto);
+        if (escolhas == null) {
+            escolhas = new ArrayList<>();
+        }
+        escolhas.add(escolha);
     }
 
     public void adicionarEscolha(int escolhaNumero, String escolhaTexto, String escolhaDestino) {
+        Escolha escolha = new Escolha(escolhaTexto, escolhaDestino);
+        if (escolhas == null) {
+            escolhas = new ArrayList<>();
+        }
+        escolhas.add(escolha);
+    }
+
+    public void adicionarEscolha(Escolha escolha) {
+        if (escolhas == null) {
+            escolhas = new ArrayList<>();
+        }
+        escolhas.add(escolha);
     }
 }

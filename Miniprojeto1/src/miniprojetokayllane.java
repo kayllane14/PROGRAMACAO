@@ -1,10 +1,14 @@
 import java.util.*;
-import java.io.*;
 
 public class miniprojetokayllane {
     public static void main(String[] args) {
-        Map<String, Personagem> personagens = LEReCARREGAR.lerPERSONAGENS("C:/Users/Kayllane/Documents/PROGRAMACAO/Miniprojeto1/rsc/personagens");
-        List<Capitulo> capitulos = LEReCARREGAR.lerCAPITULOS("C:/Users/Kayllane/Documents/PROGRAMACAO/Miniprojeto1/rsc/capitulos");
+        LeitorDeArquivos leitor = new LeitorDeArquivos();
+
+        // Carregando os personagens do arquivo
+        Map<String, Personagem> personagens = leitor.lerPersonagens("C:/Users/Kayllane/Documents/PROGRAMACAO/Miniprojeto1/rsc/personagens");
+
+        // Carregando os capítulos do arquivo
+        List<Capitulo> capitulos = leitor.lerCapitulos("C:/Users/Kayllane/Documents/PROGRAMACAO/Miniprojeto1/rsc/capitulos", new HashMap<>(personagens));
 
         // Iniciar a história com o primeiro capítulo
         if (!capitulos.isEmpty()) {
@@ -22,7 +26,22 @@ public class miniprojetokayllane {
 
                     int escolhaUsuario = LerInput.lerEscolha();
                     if (escolhaUsuario >= 1 && escolhaUsuario <= capituloAtual.getEscolhas().size()) {
-                        capituloAtual = capituloAtual.getEscolhas().get(escolhaUsuario - 1).getCapituloDestino();
+                        Escolha escolhaSelecionada = capituloAtual.getEscolhas().get(escolhaUsuario - 1);
+                        String nomeCapituloDestino = escolhaSelecionada.getCapituloDestino();
+
+                        Capitulo capitulo = null; // Inicialize com null
+                        for (Capitulo c : capitulos) {
+                            if (c.getNome().equals(nomeCapituloDestino)) {
+                                capitulo = c;
+                                break;
+                            }
+                        }
+
+                        if (capitulo != null) {
+                            capituloAtual = capitulo;
+                        } else {
+                            System.out.println("Capítulo de destino não encontrado.");
+                        }
                     } else {
                         System.out.println("Escolha inválida. Por favor, escolha uma opção válida.");
                     }

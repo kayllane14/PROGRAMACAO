@@ -3,18 +3,29 @@ O Convite Real
 No Reino Encantado, um convite real chegou às mãos das princesas Eadlyn e Celeste...
 Eadlyn, Celeste
 0
-ESCOLHAS
-1. Aceitar o convite e ir ao baile. => O Encontro com a Modista
-2. Recusar o convite e não ir ao baile. => Fim da História
+ESCOLHA
+O Convite Real
+Aceitar o convite e ir ao baile.
+O Encontro com a Modista
+ESCOLHA
+O Convite Real
+recusar o convite e não ir ao baile.
+Fim da Historia
+Recusar o convite e não ir ao baile.
 
 CAPITULO
 O Encontro com a Modista
 As princesas, empolgadas com o baile, decidiram visitar a renomada modista, Srta. Judete. Ela aceita fazer os vestidos das princesas?
 Eadlyn, Celeste
 15
-ESCOLHAS
-1. Ela aceita. => Decisão de Estilos
-2. Ela recusa! => Desapontamento
+ESCOLHA
+O Encontro com a Modista
+Ela aceita.
+Decisão de Estilos
+ESCOLHA
+O Encontro com a Modista
+Ela recusa.
+Desapontamento
 
 CAPITULO
 Fim da História
@@ -27,9 +38,14 @@ Decisão de Estilos
 A modista propõe duas opções de estilo para os vestidos das princesas...
 Eadlyn, Celeste
 0
-ESCOLHAS
-1. Escolher a Fusão de Estilos. => Estrelas
-2. Escolher a Elegância Tradicional. => Sem Autoestima
+ESCOLHA
+Decisão de Estilos
+Escolher a Fusão de Estilos.
+Estrelas
+ESCOLHA
+Decisão de Estilos
+Escolher a Elegância Tradicional.
+Sem Autoestima
 
 CAPITULO
 Desapontamento
