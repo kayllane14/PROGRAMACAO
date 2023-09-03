@@ -1,10 +1,10 @@
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.io.*;
 
 public class miniprojetokayllane {
     public static void main(String[] args) {
-        Map<String, Personagem> personagens = LEReCARREGAR.lerPERSONAGENS("C:/Users/Kayllane/Documents/PROGRAMACAO/Miniprojeto1/rsc/PERSONAGENS");
-        List<Capitulo> capitulos = LEReCARREGAR.lerCAPITULOS("C:/Users/Kayllane/Documents/PROGRAMACAO/Miniprojeto1/rsc/CAPITULOS", personagens);
+        Map<String, Personagem> personagens = LEReCARREGAR.lerPERSONAGENS("C:/Users/Kayllane/Documents/PROGRAMACAO/Miniprojeto1/rsc/personagens");
+        List<Capitulo> capitulos = LEReCARREGAR.lerCAPITULOS("C:/Users/Kayllane/Documents/PROGRAMACAO/Miniprojeto1/rsc/capitulos");
 
         // Iniciar a história com o primeiro capítulo
         if (!capitulos.isEmpty()) {

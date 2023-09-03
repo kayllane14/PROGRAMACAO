@@ -1,50 +1,50 @@
 CAPITULO
-NOME: O Convite Real
-TEXTO: No Reino Encantado, um convite real chegou às mãos das princesas Eadlyn e Celeste...
-PERSONAGENS: Eadlyn, Celeste
-MUDA_ALEGRIA: 0
-ESCOLHAS:
+O Convite Real
+No Reino Encantado, um convite real chegou às mãos das princesas Eadlyn e Celeste...
+Eadlyn, Celeste
+0
+ESCOLHAS
 1. Aceitar o convite e ir ao baile. => O Encontro com a Modista
 2. Recusar o convite e não ir ao baile. => Fim da História
 
 CAPITULO
-NOME: O Encontro com a Modista
-TEXTO: As princesas, empolgadas com o baile, decidiram visitar a renomada modista, Srta. Judete. Ela aceita fazer os vestidos das princesas?
-PERSONAGENS: Eadlyn, Celeste
-MUDA_ALEGRIA: 15
-ESCOLHAS:
+O Encontro com a Modista
+As princesas, empolgadas com o baile, decidiram visitar a renomada modista, Srta. Judete. Ela aceita fazer os vestidos das princesas?
+Eadlyn, Celeste
+15
+ESCOLHAS
 1. Ela aceita. => Decisão de Estilos
 2. Ela recusa! => Desapontamento
 
 CAPITULO
-NOME: Fim da História
-TEXTO: As princesas optaram por não participar do baile e a história chegou ao fim.
-PERSONAGENS: Eadlyn, Celeste
-MUDA_ALEGRIA: -10
+Fim da História
+As princesas optaram por não participar do baile e a história chegou ao fim.
+Eadlyn, Celeste
+-10
 
 CAPITULO
-NOME: Decisão de Estilos
-TEXTO: A modista propõe duas opções de estilo para os vestidos das princesas...
-PERSONAGENS: Eadlyn, Celeste
-MUDA_ALEGRIA: 0
-ESCOLHAS:
+Decisão de Estilos
+A modista propõe duas opções de estilo para os vestidos das princesas...
+Eadlyn, Celeste
+0
+ESCOLHAS
 1. Escolher a Fusão de Estilos. => Estrelas
 2. Escolher a Elegância Tradicional. => Sem Autoestima
 
 CAPITULO
-NOME: Desapontamento
-TEXTO: As princesas ficaram desapontadas e decidiram não ir mais ao baile, pois não confiam em outra modista.
-PERSONAGENS: Eadlyn, Celeste
-MUDA_ALEGRIA: -12
+Desapontamento
+As princesas ficaram desapontadas e decidiram não ir mais ao baile, pois não confiam em outra modista.
+Eadlyn, Celeste
+-12
 
 CAPITULO
-NOME: Sem Autoestima
-TEXTO: As princesas ficaram decepcionadas com os vestidos e optaram por não ir ao baile.
-PERSONAGENS: Eadlyn, Celeste
-MUDA_ALEGRIA: -10
+Sem Autoestima
+As princesas ficaram decepcionadas com os vestidos e optaram por não ir ao baile.
+Eadlyn, Celeste
+-10
 
 CAPITULO
-NOME: Estrelas
-TEXTO: As princesas amaram os vestidos. No baile, destacaram-se com suas escolhas e foram admiradas por sua elegância.
-PERSONAGENS: Eadlyn, Celeste
-MUDA_ALEGRIA: 0
+Estrelas
+As princesas amaram os vestidos. No baile, destacaram-se com suas escolhas e foram admiradas por sua elegância.
+Eadlyn, Celeste
+0
