@@ -15,6 +15,7 @@ public class Capitulo implements Serializable {
         this.texto = texto;
         this.personagens = personagens;
         this.mudaAlegria = mudaAlegria;
+        this.escolhas = new ArrayList<>(); // Inicializa a lista de escolhas vazia
     }
 
     public String getNome() {

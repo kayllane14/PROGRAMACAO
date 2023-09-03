@@ -2,7 +2,7 @@ import java.util.*;
 
 public class miniprojetokayllane {
     public static void main(String[] args) {
-        LeitorDeArquivos leitor = new LeitorDeArquivos();
+       LeitorDeCarregamento leitor = new LeitorDeCarregamento();
 
         // Carregando os personagens do arquivo
         Map<String, Personagem> personagens = leitor.lerPersonagens("C:/Users/Kayllane/Documents/PROGRAMACAO/Miniprojeto1/rsc/personagens");
