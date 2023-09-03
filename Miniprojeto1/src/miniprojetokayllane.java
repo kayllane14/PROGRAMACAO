@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class miniprojetokayllane {
+public class MiniProjetoKayllane {
     public static void main(String[] args) {
        LeitorDeCarregamento leitor = new LeitorDeCarregamento();
 
